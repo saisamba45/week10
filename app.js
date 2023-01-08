@@ -12,7 +12,6 @@ const LocalStrategy = require("passport-local");
 const flash = require("connect-flash");
 const bcrypt = require("bcrypt");
 
-const saltRounds = 10;
 app.set("views", path.join(__dirname, "views"));
 app.use(flash());
 const { Todo, User } = require("./models");
