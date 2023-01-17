@@ -11,8 +11,6 @@ const session = require("express-session");
 const LocalStrategy = require("passport-local");
 const flash = require("connect-flash");
 const bcrypt = require("bcrypt");
-const saltRounds = 10;
-
 app.set("views", path.join(__dirname, "views"));
 app.use(flash());
 const { Todo, User } = require("./models");
@@ -151,7 +149,6 @@ app.post("/users", async (request, response) => {
     console.log(error);
   }
 });
-
 app.get("/login", (request, response) => {
   response.render("login", { title: "Login", csrfToken: request.csrfToken() });
 });
@@ -225,7 +222,6 @@ app.post(
     }
   }
 );
-//PUT https://mytodoapp.com/todos/123/markAscomplete
 app.put(
   "/todos/:id",
   connectEnsureLogin.ensureLoggedIn(),
